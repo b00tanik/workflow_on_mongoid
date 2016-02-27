@@ -17,7 +17,7 @@ module Workflow
   end
 
   def self.included(klass)
-    klass.send :include, WorkflowInstance
+    klass.send :include, InstanceMethods
     klass.extend WorkflowClassMethods
     if Object.const_defined?(:ActiveRecord) && klass < ActiveRecord::Base
       klass.send :include, ActiveRecordInstanceMethods
